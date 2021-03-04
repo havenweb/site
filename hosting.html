@@ -9,6 +9,7 @@
  <link rel="manifest" href="/manifest.webmanifest" />
  <title>Hosting options for Haven</title>
  <meta name="Description" content="Self-hosting is the best way to run your Haven if you can; otherwise we can host your Haven for you on a dedicated computer for only $5 per month.">
+ <script src="https://js.stripe.com/v3/"></script>
 </head>
 <body>
     <nav>
@@ -26,5 +27,70 @@
 <p>Running your own server gives you the most control over your site and we think it is the best way to run your Haven.   But we know that doing it yourself is hard and takes specialized knowledge.  We want to make it as easy as possible for <em>all</em> people to create a safe space to post privately, and share with their friends without subjecting them to big-tech tracking or ads.</p>
 <p>For these reasons we're offering to host a Haven for you. You can try a hosted Haven for free for a week to see what it's like--no credit card required.  For $5 per month after that, your private blog will be hosted on a subdomain of havenweb.org on a dedicated virtual server.  A subdomain means your site will live at something like <code>alice.havenweb.org</code>.  If you want to use a custom domain that you already own, you can have that domain point to your hosted Haven, or you can pay $10 per month to have us host it on a dedicated domain.  
 <p><a href="https://forms.gle/zuQE1DRG45D8cZvy6"><button type="button">Try it out for free</button></a></p>
+
+ <form>
+  <label for="signup_email">Email:</label><br>
+  <input type="text" id="signup_email" name="signup_email" size="30"><br>
+  <label for="signup_subdomain">Subdomain:</label><br>
+  <input type="text" id="signup_subdomain" name="signup_subdomain" size="15">
+  <input type="text" id="signup_domain" name="domain" placeholder=".havenweb.org" size="10" disabled>
+</form> 
+
+<button
+  style="background-color:#6772E5;color:#FFF;padding:8px 12px;border:0;border-radius:4px;font-size:1em"
+  id="checkout-button-price_1INLttAsg7x1mcA5BbFzhiLi"
+  role="link"
+  type="button"
+>
+  Sign Up for $5/month
+</button>
+<div id="error-message"></div>
+
+After signing up, we will configure and deploy your Haven.  Look for an email with login information.  If you have not heard from us within 24 hours, feel free to send us a message for support using this form: <a href="https://forms.gle/qhafG2uZegET6x6s6">Haven Support</a>.  If 
+
 </body>
+
+<script>
+(function() {
+//  var stripe = Stripe('pk_live_E1hDb2yIYZBgi40JuixSRXnx002TK8wBS8');
+  var stripe = Stripe('pk_test_q05rgDUNLUAAngd5yNmgbyXL00canY5yis');
+
+  var checkoutButton = document.getElementById('checkout-button-price_1INLttAsg7x1mcA5BbFzhiLi');
+  checkoutButton.addEventListener('click', function () {
+    var signup_email = document.getElementById("signup_email").value;
+    var signup_subdomain = document.getElementById("signup_subdomain").value;
+    /*
+     * When the customer clicks on the button, redirect
+     * them to Checkout.
+     */
+    stripe.redirectToCheckout({
+  //    lineItems: [{price: 'price_1INLttAsg7x1mcA5BbFzhiLi', quantity: 1}], // live data
+      lineItems: [{price: 'plan_GG62GIpELgHAWk', quantity: 1}], // test data
+      mode: 'subscription',
+      /*
+       * Do not rely on the redirect to the successUrl for fulfilling
+       * purchases, customers may not always reach the success_url after
+       * a successful payment.
+       * Instead use one of the strategies described in
+       * https://stripe.com/docs/payments/checkout/fulfill-orders
+       */
+      successUrl: window.location.protocol + '//havenweb.org/success',
+      cancelUrl: window.location.protocol + '//havenweb.org/canceled',
+      clientReferenceId: signup_subdomain,
+      customerEmail: signup_email,
+    })
+    .then(function (result) {
+      if (result.error) {
+        /*
+         * If `redirectToCheckout` fails due to a browser or network
+         * error, display the localized error message to your customer.
+         */
+        var displayError = document.getElementById('error-message');
+        displayError.textContent = result.error.message;
+      }
+    });
+  });
+})();
+</script>
+
 </html>

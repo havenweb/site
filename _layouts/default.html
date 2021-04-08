@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+ <meta name="viewport" content="width=device-width, initial-scale=1">
+ <link rel="stylesheet" type="text/css" href="/assets/css/style.css"/>
+ <link rel="icon" href="/favicon.ico" />
+ <link rel="icon" href="/icon.svg" type="image/svg+xml" sizes="any" />
+ <link rel="apple-touch-icon" href="/apple.png" />
+ <link rel="manifest" href="/manifest.webmanifest" />
+ <title>{{page.title}}: {{page.meta-title}}</title>
+ <meta name="Description" content="{{page.meta-description}}">
+ {%- if page.stripe -%}
+ <script src="https://js.stripe.com/v3/"></script>
+ {%- endif -%}
+</head>
+<body>
+    <nav>
+    <header>
+      <a href="index.html">Haven</a>
+      <a href="story.html">Story</a>
+      <a href="features.html">Features</a>
+      <a href="https://github.com/havenweb/haven">GitHub</a>
+      <a href="hosting.html">Hosting</a>
+    </header>
+    </nav>
+
+{{content}}
+
+</body>
+
+{% if page.stripe %}
+<script>
+(function() {
+{%- if jekyll.environment == "production" -%}
+  var stripe = Stripe('pk_live_E1hDb2yIYZBgi40JuixSRXnx002TK8wBS8');
+{%- else -%}
+  var stripe = Stripe('pk_test_q05rgDUNLUAAngd5yNmgbyXL00canY5yis');
+{%- endif -%}
+
+  var checkoutButton = document.getElementById('checkout-button-price_1INLttAsg7x1mcA5BbFzhiLi');
+  checkoutButton.addEventListener('click', function () {
+    var signup_email = document.getElementById("signup_email").value;
+    var signup_subdomain = document.getElementById("signup_subdomain").value;
+    /*
+     * When the customer clicks on the button, redirect
+     * them to Checkout.
+     */
+    stripe.redirectToCheckout({
+  //    lineItems: [{price: 'price_1INLttAsg7x1mcA5BbFzhiLi', quantity: 1}], // live data
+      lineItems: [{price: 'plan_GG62GIpELgHAWk', quantity: 1}], // test data
+      mode: 'subscription',
+      /*
+       * Do not rely on the redirect to the successUrl for fulfilling
+       * purchases, customers may not always reach the success_url after
+       * a successful payment.
+       * Instead use one of the strategies described in
+       * https://stripe.com/docs/payments/checkout/fulfill-orders
+       */
+      successUrl: window.location.protocol + '//havenweb.org/success',
+      cancelUrl: window.location.protocol + '//havenweb.org/canceled',
+      clientReferenceId: signup_subdomain,
+      customerEmail: signup_email,
+    })
+    .then(function (result) {
+      if (result.error) {
+        /*
+         * If `redirectToCheckout` fails due to a browser or network
+         * error, display the localized error message to your customer.
+         */
+        var displayError = document.getElementById('error-message');
+        displayError.textContent = result.error.message;
+      }
+    });
+  });
+})();
+</script>
+{% endif %}
+
+</html>

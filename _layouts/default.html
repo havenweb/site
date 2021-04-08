@@ -31,11 +31,11 @@
 {% if page.stripe %}
 <script>
 (function() {
-{%- if jekyll.environment == "production" -%}
+{%- if jekyll.environment == "production" %}
   var stripe = Stripe('pk_live_E1hDb2yIYZBgi40JuixSRXnx002TK8wBS8');
-{%- else -%}
+{%- else %}
   var stripe = Stripe('pk_test_q05rgDUNLUAAngd5yNmgbyXL00canY5yis');
-{%- endif -%}
+{%- endif %}
 
   var checkoutButton = document.getElementById('checkout-button-price_1INLttAsg7x1mcA5BbFzhiLi');
   checkoutButton.addEventListener('click', function () {
@@ -46,11 +46,11 @@
      * them to Checkout.
      */
     stripe.redirectToCheckout({
-{%- if jekyll.environment == "production" -%}
+{%- if jekyll.environment == "production" %}
       lineItems: [{price: 'price_1INLttAsg7x1mcA5BbFzhiLi', quantity: 1}], // live data
-{%- else -%}
+{%- else %}
       lineItems: [{price: 'plan_GG62GIpELgHAWk', quantity: 1}], // test data
-{%- endif -%}
+{%- endif %}
       mode: 'subscription',
       /*
        * Do not rely on the redirect to the successUrl for fulfilling

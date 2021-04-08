@@ -46,8 +46,11 @@
      * them to Checkout.
      */
     stripe.redirectToCheckout({
-  //    lineItems: [{price: 'price_1INLttAsg7x1mcA5BbFzhiLi', quantity: 1}], // live data
+{%- if jekyll.environment == "production" -%}
+      lineItems: [{price: 'price_1INLttAsg7x1mcA5BbFzhiLi', quantity: 1}], // live data
+{%- else -%}
       lineItems: [{price: 'plan_GG62GIpELgHAWk', quantity: 1}], // test data
+{%- endif -%}
       mode: 'subscription',
       /*
        * Do not rely on the redirect to the successUrl for fulfilling

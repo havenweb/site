@@ -17,14 +17,23 @@
     <nav>
     <header>
       <a href="index.html">Haven</a>
-      <a href="story.html">Story</a>
+      <a href="order.html">Sign Up</a>
       <a href="features.html">Features</a>
-      <a href="https://github.com/havenweb/haven">GitHub</a>
-      <a href="hosting.html">Hosting</a>
     </header>
     </nav>
 
 {{content}}
+  <nav>
+    <footer>
+      <a href="index.html">Haven</a>
+      <a href="story.html">Story</a>
+      <a href="features.html">Features</a>
+      <a href="https://github.com/havenweb/haven">GitHub</a>
+      <a href="demo.html">Free Demo</a>
+      <a href="contact.html">Contact Us</a>
+      <a href="order.html">Sign Up</a>
+    </footer>
+    </nav>
 
 </body>
 
@@ -59,8 +68,8 @@
        * Instead use one of the strategies described in
        * https://stripe.com/docs/payments/checkout/fulfill-orders
        */
-      successUrl: window.location.protocol + '//havenweb.org/success',
-      cancelUrl: window.location.protocol + '//havenweb.org/canceled',
+      successUrl: window.location.protocol + '//havenweb.org/success.html',
+      cancelUrl: window.location.protocol + '//havenweb.org/canceled.html',
       clientReferenceId: signup_subdomain,
       customerEmail: signup_email,
     })

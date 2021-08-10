@@ -198,6 +198,15 @@ header {
 	padding-right: calc(50vw - 50%);
 }
 
+footer {
+	background: var(--nc-bg-2);
+	border-top: 1px solid var(--nc-bg-3);
+	padding: 1rem 1.5rem;
+	margin: 2rem calc(0px - (50vw - 50%)) -2rem;
+	padding-left: calc(50vw - 50%);
+	padding-right: calc(50vw - 50%);
+}
+
 header h1,
 header h2,
 header h3 {
@@ -210,9 +219,9 @@ header > *:first-child {
 	padding-top: 0;
 }
 
-header > *:last-child {
+header > *:not(:first-child) {
 	margin-bottom: 0;
-//	float: right;
+	float: right;
 }
 
 header a {
@@ -220,6 +229,14 @@ header a {
 	color: var(--nc-tx-1);
 	text-decoration: none;
 	padding-right: 1rem;
+	margin-right: 1rem;
+}
+footer a {
+	font-size: 1rem;
+	color: var(--nc-tx-1);
+	text-decoration: none;
+	padding-right: 1rem;
+	margin-right: 1rem;
 }
 
 /* If there is only one element in the header, don't float it to the right */

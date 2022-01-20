@@ -11,3 +11,7 @@ The build will output in `_site/`.
 To build and run the server: `jekyll serve`
 
 To build for deployment: `JEKYLL_ENV=production jekyll build`
+
+Update Github stars image: `curl "https://img.shields.io/github/stars/havenweb/haven?style=social" > assets/images/stars.svg`
+
+Blue: #0070f3

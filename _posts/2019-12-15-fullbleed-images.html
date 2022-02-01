@@ -1,0 +1,52 @@
+---
+layout: post
+title:  "Tips and Tricks: Full Bleed Images"
+meta-title: "Tips and Tricks: Full Bleed Images"
+meta-description: "Learn how to use your Haven's custom CSS to make full-bleed images that go from edge to edge"
+---
+
+<p>Have you wondered what you can do with the "Custom CSS" box in your Haven's settings?  The custom CSS help page on your Haven describes changing colors or using different fonts, but you can use CSS to change almost any part of how your Haven looks.  In this post, we're going to describe how to make full-bleed images that go from edge to edge.
+
+<p>Normally, when you upload an image on your Haven, it might look something like this:
+
+<p><img class="default" src="/assets/images/kiana-bosman.jpg" alt="Picture of child smiling"></img>
+<br>Photo by <a href="https://unsplash.com/@capturedby_kiana">Kiana Bosman</a> on <a href="https://unsplash.com/s/photos/black-girl-baby">Unsplash</a>
+
+<p>To make the image stretch all the way to the edge, add the following custom CSS in your Haven's settings:
+
+{% highlight css %}
+img {
+  width: 100vw;
+  position: relative;
+  left: 50%;
+  right: 50%;
+  margin-left: -50vw;
+  margin-right: -50vw;
+  max-width: 100vw;
+}
+{% endhighlight %}
+
+<p>Now your image will stretch edge to edge like this:
+
+<p><img class="fullbleed" src="/assets/images/kiana-bosman.jpg" alt="Picture of child smiling"></img>
+<br>Photo by <a href="https://unsplash.com/@capturedby_kiana">Kiana Bosman</a> on <a href="https://unsplash.com/s/photos/black-girl-baby">Unsplash</a>
+
+<p>The <code>img</code> selector at the top means this CSS will apply to all images on your Haven.  If you only want some images to show up this way, you can use a more specific selector.  Change <code>img</code> to <code>img.fullbleed</code> in the first line of your custom CSS.  Then you'll have to specify a CSS <em>class</em> on any image you want displayed full-bleed.</p>
+
+<p>When you upload an image to your Haven, it creates the HTML image code for you.  It will look something like this:</p>
+
+{% highlight html %}
+<a href="/images/raw/123/cute_kid.jpg">
+  <img src="/images/resized/123/cute_kid.jpg"></img>
+</a>
+{% endhighlight %}
+
+<p>The <code>{{"<img src=..."| xml_escape }}</code> line shows the actual image on your page, that's where you can add a CSS class.  Since you named the selector <code>img.fullbleed</code>, add the `fullbleed` class in the HTML code.  The section will look like this:
+
+{% highlight html %}
+<a href="/images/raw/123/cute_kid.jpg">
+  <img class="fullbleed" src="/images/resized/123/cute_kid.jpg"></img>
+</a>
+{% endhighlight %}
+
+<p>This is just one example of what you can do with the Custom CSS on your Haven to make it look the way you want it to look.  Expect to see some other tips and tricks here in the future!

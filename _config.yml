@@ -1,1 +1,4 @@
 exclude: [README.md]
+name: Haven Blog
+description: All the latest updates and tips for Haven
+url: http://havenweb.org

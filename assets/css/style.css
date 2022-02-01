@@ -237,6 +237,7 @@ footer a {
 	text-decoration: none;
 	padding-right: 1rem;
 	margin-right: 1rem;
+	white-space: nowrap;
 }
 
 /* If there is only one element in the header, don't float it to the right */
@@ -244,9 +245,11 @@ header > *:first-child:last-child {
 	float: none;
 }
 
+/*
 header > *:last-child {
 	padding-right: 0;
 }
+*/
 
 
 a button,
@@ -491,6 +494,24 @@ img {
         float: right;
         margin-left: 1rem;
         margin-bottom: 0;
+}
+
+img.default {
+	max-width: 100%;
+        float: none;
+        margin: 0;
+        margin-left: 0;
+}
+
+img.fullbleed {
+	float: none;
+	width: 100vw;
+	position: relative;
+	left: 50%;
+	right: 50%;
+	margin-left: -50vw;
+	margin-right: -50vw;
+	max-width: 100vw;
 }
 
 video,

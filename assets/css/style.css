@@ -209,6 +209,7 @@ footer {
 	margin: 2rem calc(0px - (50vw - 50%)) -2rem;
 	padding-left: calc(50vw - 50%);
 	padding-right: calc(50vw - 50%);
+	text-align: center;
 }
 
 header h1,
@@ -236,11 +237,11 @@ header a {
 	margin-right: 1rem;
 }
 footer a {
-	font-size: 1rem;
+	font-size: 0.85rem;
 	color: var(--nc-tx-1);
 	text-decoration: none;
 	padding-right: 1rem;
-	margin-right: 1rem;
+	margin: auto;
 	white-space: nowrap;
 }
 
@@ -505,6 +506,15 @@ img.default {
         float: none;
         margin: 0;
         margin-left: 0;
+}
+
+img.screenshot {
+	max-width: 100%;
+        float: none;
+        margin: 0;
+        margin-left: 0;
+        margin-bottom: 1rem;
+	box-shadow:5px 5px 12px 2px #888;	
 }
 
 img.fullbleed {

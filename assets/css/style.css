@@ -161,6 +161,10 @@ a:hover {
 	color: var(--nc-lk-2);
 }
 
+p.dt-published {
+	font-style: italic;
+}
+
 abbr:hover {
 	/* Set the '?' cursor while hovering an abbreviation */
 	cursor: help;

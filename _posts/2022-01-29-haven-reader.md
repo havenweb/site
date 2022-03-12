@@ -4,6 +4,9 @@ title:  "Haven Reader"
 meta-title: "Haven Reader"
 meta-description: "Haven's new feed reader helps you recreate a social media feed, but curated by you without an algorithm deciding what you should see"
 ---
+
+<img class="default" src="/assets/images/aaron-burden-6jYoil2GhVk-unsplash.jpg" alt="Child reading a book" />
+
 There are two sides to most social networks: writing and reading.  One thing that the popular platforms do really well is to integrate the two sides.  For example, your Facebook feed has a very convenient box at the top to share "what's on your mind"; while your main feed is full of what other people have written in that box.  The broader internet doesn't really work the same way.  Building and publishing a website uses one set of tools while reading a web page uses a browser.
 
 Haven lets you use the power of the internet to privately and independently do the things that social media platforms have shown us we like to do.  When we first built Haven, it was just a tool for writing and sharing privately with the people closest to you.  But you would use your Haven to write while still using your browser to visit other web pages--including other peoples’ Havens.  Today that changes.

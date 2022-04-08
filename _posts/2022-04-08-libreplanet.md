@@ -1,8 +1,8 @@
 ---
 layout: post
-title:  "Lightning Talk at the LibrePlanet Conference"
-meta-title: "Lighting Talk at the LibrePlanet Conference"
-meta-description: "I gave a short talk about Haven and private blogs at the LibrePlanet 2022 free-software conference"
+title:  "Private Blogs Are A Better Social Internet - Video"
+meta-title: "Private Blogs Are A Better Social Internet - Video"
+meta-description: "A video describing some of the motivations for Haven and the ways that Facebook fails it's purported mission"
 ---
 
 I got a chance to share a short lightning talk at the LibrePlanet 2022 free-software conference a few weeks agao.  The talk describes some of the motivations for Haven and the ways that Facebook fails it's purported mission.

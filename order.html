@@ -2,7 +2,6 @@
 layout: default
 meta-title: Sign-up for Haven
 meta-description: If you're ready to make all your online sharing private and under your own control, the sign up for Haven here.
-stripe: true
 ---
 <h1>Sign Up for Hosting</h1>
 <h3>$5 per month</h3>
@@ -10,22 +9,18 @@ stripe: true
 <p>Running your own server gives you the most control over your site and we think it is the best way to run your Haven.   But we know that doing it yourself is hard and takes specialized knowledge.  We want to make it as easy as possible for <em>everyone</em> to create a safe space to post privately, and share with their friends without subjecting them to big-tech tracking or ads.</p>
 <p>For these reasons we're offering to host a Haven for you.  For $5 per month, we will run your private blog on a subdomain of havenweb.org on a dedicated virtual server.  A subdomain means your site will live at something like <code>example.havenweb.org</code>.  A dedicated server means only your Haven runs on that server, it isn't shared with anyone else.  Go ahead and give it a try!</p>
 
-<form>
-  <label for="signup_email">Email:</label><br>
-  <input type="text" id="signup_email" name="signup_email" size="30"><br>
-  <label for="signup_subdomain">Subdomain:</label><br>
-  <input type="text" id="signup_subdomain" name="signup_subdomain" size="15">
-  <input type="text" id="signup_domain" name="domain" placeholder=".havenweb.org" size="10" disabled>
+{%- if jekyll.environment == "production" %}
+<form action="https://buy.stripe.com/9AQ5kEgUWgH3eRi8ww" method="get">
+{%- else %}
+<form action="https://buy.stripe.com/test_aEU9EbeiJb061Qk7ss" method="get">
+{%- endif %}
+  <label for="prefilled_email">Email:</label><br>
+  <input type="text" id="prefilled_email" name="prefilled_email" size="30" required><br>
+  <label for="client_reference_id">Subdomain:</label><br>
+  <input type="text" id="client_reference_id" name="client_reference_id" size="15" required>
+  <input type="text" id="signup_domain" name="domain" placeholder=".havenweb.org" size="10" disabled><br/>
+  <input type="submit" value="Sign Up for $5/month">
 </form>
-
-<button
-  style="background-color:#6772E5;color:#FFF;padding:8px 12px;border:0;border-radius:4px;font-size:1em"
-  id="checkout-button-price_1INLttAsg7x1mcA5BbFzhiLi"
-  role="link"
-  type="button"
->
-  Sign Up for $5/month
-</button>
 <br/>(This button takes you to a <a href="https://stripe.com/">Stripe</a> page to enter payment information)
 <div id="error-message"></div>
 <br/>

@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "Some thoughts on 'Some thoughts on walled gardens'"
+title: "Haven Blog"
 meta-title: "Some thoughts on 'Some thoughts on walled gardens'"
 meta-description: "James from the IndieWeb community wrote a post about Walled Gardens.  It's a great topic, and one that is particularly relevant to Haven's mission."
 ---

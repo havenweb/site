@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "Private Blogs Are A Better Social Internet - Video"
+title: "Haven Blog"
 meta-title: "Private Blogs Are A Better Social Internet - Video"
 meta-description: "A video describing some of the motivations for Haven and the ways that Facebook fails it's purported mission"
 ---

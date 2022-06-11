@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "Haven Reader"
+title:  "Haven Blog"
 meta-title: "Haven Reader"
 meta-description: "Haven's new feed reader helps you recreate a social media feed, but curated by you without an algorithm deciding what you should see"
 ---

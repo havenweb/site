@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "Images in Private RSS Feeds"
+title: "Haven Blog"
 meta-title: "Images in Private RSS Feeds"
 meta-description: "Including images in a private RSS feed is tricky, Haven's approach uses a per-user credential and an HMAC to ensure compatibility with lots of feed readers"
 ---

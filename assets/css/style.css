@@ -515,9 +515,10 @@ img.default {
 img.screenshot {
 	max-width: 100%;
         float: none;
-        margin: 0;
-        margin-left: 0;
-        margin-bottom: 1rem;
+    #    margin: 0;
+    #    margin-left: 0;
+        margin: auto auto 1rem;
+    #    margin-bottom: 1rem;
 	box-shadow:5px 5px 12px 2px #888;	
 }
 

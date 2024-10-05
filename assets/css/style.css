@@ -538,5 +538,8 @@ audio {
 	width: 100%;
 }
 
+audio {
+	border-radius: 30px;
+}
 
 
